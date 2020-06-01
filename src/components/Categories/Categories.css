@@ -1,3 +1,19 @@
 .categories {
   display: flex;
 }
+
+.categories img {
+  height: 400px;
+  width: 100%;
+  display: block;
+}
+
+.search-results {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.meal {
+  width: 30%;
+  margin: 10px;
+}

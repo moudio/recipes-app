@@ -1,5 +1,15 @@
-img {
-  height: 200px;
+.categories img {
+  height: 400px;
   width: 100%;
   display: block;
+}
+
+.search-results {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  justify-content: center;
+}
+.meal {
+  width: 30%;
 }

@@ -1,0 +1,7 @@
+form input {
+  min-width: 400px;
+}
+
+form.form-inline {
+  justify-content: center;
+}
