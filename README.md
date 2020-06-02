@@ -1,5 +1,5 @@
 # Building a Recipe app with React & Redux.
-![screenshot](./src/pictures/screenshot.png)
+![screenshot](./src/pictures/app-screenshot.png)
 ## Technologies
 
 - Node.js
