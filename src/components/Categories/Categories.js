@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { Fragment } from 'react';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Category from './Category';
+import Meal from '../Meal/Meal';
 import './Categories.css';
 import dessert from './category_pictures/dessert.jpeg';
 import pizza from './category_pictures/pizza.jpeg';
@@ -32,41 +34,56 @@ function Categories(props) {
     );
   } else {
     return (
-      <>
-        <h2>Your Search Results</h2>
-        <div className="search-results">
-          {props.recipes.map((meal) => {
-            return (
-              <div className="card meal">
-                <img
-                  src={meal.strMealThumb}
-                  className="card-img-top"
-                  alt={meal.idMeal}
-                />
-                <div className="card-body">
-                  <h5 className="card-title">{meal.strMeal}</h5>
-                </div>
-                <ul className="list-group list-group-flush">
-                  <li className="list-group-item">str</li>
-                  <li className="list-group-item">Dapibus ac facilisis in</li>
-                  <li className="list-group-item">Vestibulum at eros</li>
-                </ul>
-                <div className="card-body">
-                  <a href="#" className="card-link">
-                    Card link
-                  </a>
-                  <a href="#" className="card-link">
-                    Another link
-                  </a>
-                </div>
+      <Fragment>
+        <Router>
+          <Switch>
+            <Route exact path="/">
+              <h2>Your Search Results</h2>
+
+              <div className="search-results">
+                {props.recipes.map((meal) => {
+                  return (
+                    <div className="card meal" key={meal.idMeal}>
+                      <img
+                        src={meal.strMealThumb}
+                        className="card-img-top"
+                        alt={meal.strMeal}
+                      />
+                      <div className="card-body">
+                        <h5 className="card-title">{meal.strMeal}</h5>
+                      </div>
+                      <ul className="list-group list-group-flush">
+                        <li className="list-group-item">{meal.strArea}</li>
+                        <li className="list-group-item">{meal.strCategory}</li>
+                      </ul>
+                      <div className="card-body">
+                        <Link to={`/meal-${meal.idMeal}`} className="card-link">
+                          More Details
+                        </Link>
+                        <a
+                          href={meal.strYoutube}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="card-link"
+                        >
+                          View On Youtube
+                        </a>
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
-            );
-          })}
-        </div>
-      </>
+            </Route>
+            <Route path="/(meal-\d+)">
+              <Meal />
+            </Route>
+          </Switch>
+        </Router>
+      </Fragment>
     );
   }
 }
+
 const mapStateToProps = (state) => {
   return {
     recipes: state.recipes,

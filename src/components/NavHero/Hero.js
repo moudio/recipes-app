@@ -1,7 +1,9 @@
 import React from 'react';
+import { Link, Router } from 'react-router-dom';
 import { connect } from 'react-redux';
 import './Hero.css';
 import { selectRecipe } from '../../actions/actions';
+import Filter from '../Filter/Filter';
 class Hero extends React.Component {
   searchRecipes(element) {
     const search = document.querySelector('.search-input').value;
@@ -26,6 +28,7 @@ class Hero extends React.Component {
             placeholder="Search Recipe"
           />
           <button
+            to="results"
             className="btn btn-secondary my-2 my-sm-0"
             type="submit"
             onClick={() => this.searchRecipes(this)}
@@ -33,6 +36,7 @@ class Hero extends React.Component {
             Search
           </button>
         </form>
+        {this.props.recipes && this.props.recipes.length > 0 ? <Filter /> : ''}
         <hr className="my-4" />
       </div>
     );
@@ -42,6 +46,7 @@ class Hero extends React.Component {
 const mapStateToProps = (state) => {
   return {
     name: state.name,
+    recipes: state.recipes,
   };
 };
 
