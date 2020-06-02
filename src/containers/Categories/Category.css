@@ -1,0 +1,20 @@
+.category {
+  width: 32%;
+  margin: 5px;
+}
+.category img {
+  width: 100%;
+  height: 300px;
+}
+
+@media only screen and (max-width: 600px) {
+  .category {
+    width: 100%;
+  }
+}
+
+@media only screen and (min-width: 600px) and (max-width: 900px) {
+  .category {
+    width: 80%;
+  }
+}
