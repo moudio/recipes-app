@@ -6,7 +6,7 @@ import './Category.css';
 import { selectRecipe } from '../../actions/actions';
 
 function Category({
-  name, alt, image, search, findRecipes,
+  name, alt, image, search, findRecipes, description,
 }) {
   return (
     <Route>
@@ -14,10 +14,7 @@ function Category({
         <h3 className="card-header">{name}</h3>
         <img src={image} alt={alt} />
         <div className="card-body">
-          <p className="card-text">
-            {` Some quick example text to build on the card title and make up the
-              bulk of the card's content.`}
-          </p>
+          <p className="card-text">{description}</p>
         </div>
         <div className="card-body">
           <Link
@@ -39,6 +36,7 @@ Category.propTypes = {
   image: Proptypes.string.isRequired,
   search: Proptypes.string.isRequired,
   findRecipes: Proptypes.func.isRequired,
+  description: Proptypes.string.isRequired,
 };
 const mapDispatchToProps = (dispatch) => ({
   findRecipes: (recipe) => dispatch(selectRecipe(recipe)),

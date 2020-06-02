@@ -42,9 +42,22 @@ function Categories({ isFetching, recipes }) {
             image={chicken}
             alt="chicken"
             search="chicken"
+            description="Unique chicken-based meals just for you."
           />
-          <Category name="Pizza" image={pizza} alt="pizza" search="pizza" />
-          <Category name="Salad" image={salad} alt="salad" search="salad" />
+          <Category
+            name="Pizza"
+            image={pizza}
+            alt="pizza"
+            search="pizza"
+            description="Browse our pizza recipes selection"
+          />
+          <Category
+            name="Salad"
+            image={salad}
+            alt="salad"
+            search="salad"
+            description="Want to prepare a delicious and healthy meal? Search our salad selection recipes!"
+          />
         </div>
       </>
     );
