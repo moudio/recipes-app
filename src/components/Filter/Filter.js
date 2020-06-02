@@ -1,12 +1,13 @@
 import React from 'react';
+import Proptypes from 'prop-types';
 import './Filter.css';
 import { connect } from 'react-redux';
 import { FILTER } from '../../actions/actions';
-function Filter(props) {
-  function extractIngredient(e) {
-    let value = document.querySelector('.filter').value;
-    console.log('calling the filter with filter value ', value);
-    props.filterByIngredient(value);
+
+function Filter({ filterByIngredient }) {
+  function extractIngredient() {
+    const { value } = document.querySelector('.filter');
+    filterByIngredient(value);
   }
   return (
     <>
@@ -19,20 +20,19 @@ function Filter(props) {
     </>
   );
 }
-const mapStateToProps = (state) => {
-  return {
-    recipes: state.recipes,
-  };
-};
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    filterByIngredient: (ingredient) =>
-      dispatch({
-        type: FILTER,
-        ingredient: ingredient,
-      }),
-  };
+Filter.propTypes = {
+  filterByIngredient: Proptypes.func.isRequired,
 };
+const mapStateToProps = (state) => ({
+  recipes: state.recipes,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  filterByIngredient: (ingredient) => dispatch({
+    type: FILTER,
+    ingredient,
+  }),
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Filter);

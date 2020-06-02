@@ -1,9 +1,4 @@
-import {
-  FETCH_SUCCESS,
-  FETCH_FAILURE,
-  FILTER,
-  SINGLE_MEAL,
-} from '../actions/actions';
+import { FETCH_SUCCESS, FETCH_FAILURE, FILTER } from '../actions/actions';
 
 const defaultState = {
   recipes: [],
@@ -18,7 +13,6 @@ const heroReducer = (state = defaultState, action) => {
         isFetching: true,
       };
     case FETCH_SUCCESS:
-      console.log('success', action);
       return {
         ...state,
         recipes: action.recipes,
@@ -32,11 +26,8 @@ const heroReducer = (state = defaultState, action) => {
         isFetching: false,
       };
     case FILTER:
-      let copyRecipes = [...state.recipes];
-      let filteredRecipes = copyRecipes.filter((meal) =>
-        meal.strInstructions.includes(action.ingredient)
-      );
-      console.log(filteredRecipes);
+      const copyRecipes = [...state.recipes];
+      const filteredRecipes = copyRecipes.filter((meal) => meal.strInstructions.includes(action.ingredient));
 
       return {
         ...state,
