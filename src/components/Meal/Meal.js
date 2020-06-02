@@ -5,6 +5,8 @@ import './Meal.css';
 import { singleMeal } from '../../actions/actions';
 
 function Meal({ recipes }) {
+  document.querySelector('.filter').style.visibility = 'hidden';
+
   function goBack() {
     window.history.back();
   }
@@ -15,12 +17,12 @@ function Meal({ recipes }) {
     return meal;
   }
 
-  document.querySelector('.filter').style.display = 'none';
   let id = window.location.href;
   [id] = [id.match(/meal-\d+/)[0]];
   [id] = [id.match(/\d+/)[0]];
   const meal = findRecipe(id);
   const ingredients = [];
+  /* eslint-disable */
   for (const entry of Object.keys(meal)) {
     if (entry.includes('Ingredient') && meal[entry]) {
       const ingredientNumber = entry.split('strIngredient')[1];
@@ -48,10 +50,8 @@ function Meal({ recipes }) {
               <h5 className="card-title">Ingredients</h5>
               {ingredients.map((ingredient) => (
                 <span key={Math.random() * 4}>
-                  -
-                  {ingredient[1]}
-                  {ingredient[0]}
-                  -
+                  -{ingredient[1]}
+                  {ingredient[0]}-
                 </span>
               ))}
 
@@ -76,7 +76,12 @@ function Meal({ recipes }) {
 }
 
 Meal.propTypes = {
-  recipes: Proptypes.func.isRequired,
+  recipes: Proptypes.arrayOf(
+    Proptypes.shape({
+      idMeal: Proptypes.string,
+      strMeal: Proptypes.string,
+    })
+  ).isRequired,
 };
 
 const mapStateToProps = (state) => ({

@@ -2,6 +2,7 @@ export const FETCH_SUCCESS = 'FETCH_SUCCESS';
 export const FETCH_FAILURE = 'FETCH_FAILURE';
 export const FILTER = 'FILTER';
 export const SINGLE_MEAL = 'SINGLE_MEAL';
+export const FETCH_SUCCESS_ONE_MEAL = 'FETCH_SUCCESS_ONE_MEAL';
 
 export const selectRecipe = (recipe) => (dispatch) => {
   dispatch({
@@ -32,7 +33,7 @@ export const singleMeal = (id) => (dispatch) => {
     .then((response) => response.json())
     .then((recipes) => {
       dispatch({
-        type: FETCH_SUCCESS,
+        type: FETCH_SUCCESS_ONE_MEAL,
         recipes: recipes.meals,
       });
     })
