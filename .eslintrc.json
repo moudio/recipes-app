@@ -1,37 +1,22 @@
 {
-    "settings": {
-    "import/resolver": {
-      "node": {
-       "extensions": [".js", ".jsx", ".ts", ".tsx"],
-        "moduleDirectory": ["node_modules", "src/"]
-      }
-    }
+  "env": {
+    "browser": true,
+    "es6": true,
+    "jest": true
   },
-    "env": {
-        "browser": true,
-        "es6": true
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
     },
-    "extends": [
-        "plugin:react/recommended",
-        "airbnb"
-    ],
-    "globals": {
-        "Atomics": "readonly",
-        "SharedArrayBuffer": "readonly"
-    },
-    "parserOptions": {
-        "ecmaFeatures": {
-            "jsx": true
-        },
-        "ecmaVersion": 2018,
-        "sourceType": "module"
-    },
-    "plugins": [
-        "react"
-    ],
-    "rules": {
-  "react/jsx-filename-extension": ["warn", { "extensions": [".js", ".jsx"] }],
+    "ecmaVersion": 2018,
+    "sourceType": "module"
+  },
+  "extends": ["airbnb", "plugin:react/recommended"],
+  "plugins": ["react"],
+  "rules": {
+    "react/jsx-filename-extension": ["warn", { "extensions": [".js", ".jsx"] }],
     "import/no-unresolved": "off",
     "no-shadow": "off",
-    "arrow-parens": ["error", "as-needed"]    }
+    "arrow-parens": ["error", "as-needed"]
+  }
 }
