@@ -71,7 +71,7 @@ function Categories({ isFetching, recipes }) {
               <h2>Your Search Results</h2>
 
               <div className="search-results">
-                {recipes.map((meal) => (
+                {recipes.map(meal => (
                   <div className="card meal" key={meal.idMeal}>
                     <img
                       src={meal.strMealThumb}
@@ -121,7 +121,7 @@ Categories.propTypes = {
   ),
 };
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   recipes: state.recipes,
   isFetching: state.isFetching,
 });

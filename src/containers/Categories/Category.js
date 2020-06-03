@@ -38,7 +38,7 @@ Category.propTypes = {
   findRecipes: Proptypes.func.isRequired,
   description: Proptypes.string.isRequired,
 };
-const mapDispatchToProps = (dispatch) => ({
-  findRecipes: (recipe) => dispatch(selectRecipe(recipe)),
+const mapDispatchToProps = dispatch => ({
+  findRecipes: recipe => dispatch(selectRecipe(recipe)),
 });
 export default connect(null, mapDispatchToProps)(Category);

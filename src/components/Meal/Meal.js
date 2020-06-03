@@ -13,7 +13,7 @@ function Meal({ recipes }) {
 
   function findRecipe(id) {
     const meals = recipes;
-    const meal = meals.find((element) => element.idMeal === id);
+    const meal = meals.find(element => element.idMeal === id);
     return meal;
   }
 

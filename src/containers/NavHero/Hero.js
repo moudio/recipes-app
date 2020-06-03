@@ -57,14 +57,14 @@ Hero.propTypes = {
   fetchRecipes: Proptypes.func.isRequired,
 };
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   name: state.name,
   recipes: state.recipes,
   oneMeal: false,
 });
 
-const mapDispatchToProps = (dispatch) => ({
-  fetchRecipes: (recipe) => dispatch(selectRecipe(recipe)),
+const mapDispatchToProps = dispatch => ({
+  fetchRecipes: recipe => dispatch(selectRecipe(recipe)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Hero);

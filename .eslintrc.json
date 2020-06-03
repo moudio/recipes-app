@@ -30,6 +30,8 @@
         "react"
     ],
     "rules": {
-          "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }] 
-    }
+  "react/jsx-filename-extension": ["warn", { "extensions": [".js", ".jsx"] }],
+    "import/no-unresolved": "off",
+    "no-shadow": "off",
+    "arrow-parens": ["error", "as-needed"]    }
 }
