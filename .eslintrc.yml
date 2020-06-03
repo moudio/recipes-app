@@ -16,10 +16,11 @@ plugins:
   - react
 rules: {
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
-}
+     "import/extensions": "off"
 
+}
 settings: {
-  'import/resolver': {
+  "import/resolver": {
     node: {
       extensions: ['.js', '.jsx', '.ts', '.tsx'],
       moduleDirectory: ['node_modules', 'src/']
