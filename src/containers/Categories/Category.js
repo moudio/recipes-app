@@ -5,16 +5,25 @@ import { BrowserRouter as Route, Link } from 'react-router-dom';
 import './Category.css';
 import { selectRecipe } from '../../actions/actions';
 
-function Category({
-  name, alt, image, search, findRecipes, description,
+export function Category({
+  name,
+  alt,
+  image,
+  search,
+  findRecipes,
+  description,
 }) {
   return (
     <Route>
       <div className="category card mb-3">
-        <h3 className="card-header">{name}</h3>
+        <h3 data-testid="category-name" className="card-header">
+          {name}
+        </h3>
         <img src={image} alt={alt} />
         <div className="card-body">
-          <p className="card-text">{description}</p>
+          <p data-testid="description" className="card-text">
+            {description}
+          </p>
         </div>
         <div className="card-body">
           <Link
