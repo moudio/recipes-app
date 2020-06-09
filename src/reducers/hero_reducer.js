@@ -5,7 +5,7 @@ import {
   FETCH_SUCCESS_ONE_MEAL,
 } from '../actions/actions';
 
-const defaultState = {
+export const defaultState = {
   recipes: [],
   isFetching: false,
   oneMeal: false,

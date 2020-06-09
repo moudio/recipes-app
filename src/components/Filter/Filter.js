@@ -16,6 +16,7 @@ function Filter({ filterByIngredient }) {
         onChange={extractIngredient}
         type="text"
         placeholder="Filter By Ingredient"
+        data-testid="filter"
       />
     </>
   );

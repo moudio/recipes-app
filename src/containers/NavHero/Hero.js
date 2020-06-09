@@ -18,7 +18,7 @@ function Hero({ recipes, fetchRecipes }) {
 
   return (
     <Route>
-      <div className="jumbotron">
+      <div data-testid="hero" className="jumbotron">
         <h1 className="display-3">Recipes Made Simple</h1>
         <p className="lead">
           Discover unique way to prepare your next meal. Find unique recipes
