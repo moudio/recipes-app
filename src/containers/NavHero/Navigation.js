@@ -3,7 +3,10 @@ import React from 'react';
 export default function Navigation() {
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <nav
+        data-testid="navigation"
+        className="navbar navbar-expand-lg navbar-light bg-light"
+      >
         <a className="navbar-brand" href="/">
           Recipes Catalogue
         </a>

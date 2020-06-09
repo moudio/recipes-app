@@ -13,6 +13,9 @@
 - CSS
 - ES6
 
+## Live Version 
+<a href="https://react-meals-recipe.netlify.app/" target="_blank" > Live version </a>
+
 ## About the Project
 
 The project is a recipe web app based on a catalogue of recipes. It's a browsable list of meals you can filter and access the details of one item. 

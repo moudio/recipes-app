@@ -16,6 +16,7 @@ function Filter({ filterByIngredient }) {
         onChange={extractIngredient}
         type="text"
         placeholder="Filter By Ingredient"
+        data-testid="filter"
       />
     </>
   );
@@ -24,12 +25,12 @@ function Filter({ filterByIngredient }) {
 Filter.propTypes = {
   filterByIngredient: Proptypes.func.isRequired,
 };
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   recipes: state.recipes,
 });
 
-const mapDispatchToProps = (dispatch) => ({
-  filterByIngredient: (ingredient) => dispatch({
+const mapDispatchToProps = dispatch => ({
+  filterByIngredient: ingredient => dispatch({
     type: FILTER,
     ingredient,
   }),

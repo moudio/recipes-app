@@ -18,7 +18,7 @@ function Hero({ recipes, fetchRecipes }) {
 
   return (
     <Route>
-      <div className="jumbotron">
+      <div data-testid="hero" className="jumbotron">
         <h1 className="display-3">Recipes Made Simple</h1>
         <p className="lead">
           Discover unique way to prepare your next meal. Find unique recipes
@@ -57,14 +57,14 @@ Hero.propTypes = {
   fetchRecipes: Proptypes.func.isRequired,
 };
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   name: state.name,
   recipes: state.recipes,
   oneMeal: false,
 });
 
-const mapDispatchToProps = (dispatch) => ({
-  fetchRecipes: (recipe) => dispatch(selectRecipe(recipe)),
+const mapDispatchToProps = dispatch => ({
+  fetchRecipes: recipe => dispatch(selectRecipe(recipe)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Hero);

@@ -13,7 +13,7 @@ import salad from './category_pictures/salad.jpeg';
 import spinner from './category_pictures/spinner.gif';
 import chicken from './category_pictures/chicken.jpeg';
 
-function Categories({ isFetching, recipes }) {
+export function Categories({ isFetching, recipes }) {
   useEffect(() => {
     if (document.querySelector('.filter')) {
       document.querySelector('.filter').style.visibility = 'visible';
@@ -22,7 +22,7 @@ function Categories({ isFetching, recipes }) {
   if (isFetching) {
     return (
       <>
-        <h2>Fetching Your Results...</h2>
+        <h2 data-testid="fetching-results">Fetching Your Results...</h2>
         <div className="spinner">
           <img src={spinner} alt="spinner" />
         </div>
@@ -30,12 +30,16 @@ function Categories({ isFetching, recipes }) {
     );
   }
   if (!recipes) {
-    return <h2>We could not find your request. Please try again</h2>;
+    return (
+      <h2 data-testid="not-found">
+        We could not find your request. Please try again
+      </h2>
+    );
   }
   if (!recipes.length) {
     return (
       <>
-        <h2>Explore Our Categories</h2>
+        <h2 data-testid="explore-categories">Explore Our Categories</h2>
         <div className="categories">
           <Category
             name="Chicken"
@@ -71,7 +75,7 @@ function Categories({ isFetching, recipes }) {
               <h2>Your Search Results</h2>
 
               <div className="search-results">
-                {recipes.map((meal) => (
+                {recipes.map(meal => (
                   <div className="card meal" key={meal.idMeal}>
                     <img
                       src={meal.strMealThumb}
@@ -121,7 +125,7 @@ Categories.propTypes = {
   ),
 };
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   recipes: state.recipes,
   isFetching: state.isFetching,
 });

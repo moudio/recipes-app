@@ -5,7 +5,7 @@ import {
   FETCH_SUCCESS_ONE_MEAL,
 } from '../actions/actions';
 
-const defaultState = {
+export const defaultState = {
   recipes: [],
   isFetching: false,
   oneMeal: false,
@@ -40,7 +40,7 @@ const heroReducer = (state = defaultState, action) => {
     case FILTER:
       return {
         ...state,
-        recipes: state.recipes.filter((meal) => meal.strInstructions.includes(action.ingredient)),
+        recipes: state.recipes.filter(meal => meal.strInstructions.includes(action.ingredient)),
       };
 
     default:
