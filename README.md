@@ -11,7 +11,6 @@
 - Eslint
 - npm
 - CSS
-- ES6
 
 ## Live Version 
 <a href="https://react-meals-recipe.netlify.app/" target="_blank" > Live version </a>
