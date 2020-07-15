@@ -17,7 +17,7 @@
 
 ## About the Project
 
-The project is a recipe web app based on a catalogue of recipes. It's a browsable list of meals you can filter and access the details of one item. 
+The project is a recipe web app based on a catalog of recipes. It's a browsable list of meals you can filter and access the details of one item. 
 
 
 ## Developed by
